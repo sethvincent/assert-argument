@@ -76,7 +76,7 @@ assert.isError(value, message)
 assert.isBuffer(value, message)
 ```
 
-Any time the assertion fails an error will be thrown with the format of `ArgumentError: <message>`, where `<message>` is whatever you passed in as the second argument to describe the assertion.
+Any time the assertion fails an error will be thrown with the format of `ArgumentError: <message>`, where `<message>` is the string you passed in as the second argument to describe the assertion.
 
 ## Contributing type assertions
 I'm interested in adding more type assertion to this, but only those that have really common use cases to help keep this module small. Before adding new type assertions to this library I'd recommend extending it in your application by creating a file similar to this:
