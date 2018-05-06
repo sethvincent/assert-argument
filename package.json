@@ -4,6 +4,8 @@
   "description": "simple assertion module for checking function arguments",
   "main": "index.js",
   "scripts": {
+    "doc": "documentation build index.js -f md > docs/api.md",
+    "lint": "standard index.js",
     "test": "node tests/*.js"
   },
   "repository": {
