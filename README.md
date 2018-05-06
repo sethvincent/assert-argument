@@ -30,7 +30,7 @@ I'm not a fan of using tools like flow or typescript, but I am a fan of writing 
 
 There are probably a lot of similar projects. For instance, if you don't care about type assertions and just want a really tiny assert module, check out [nanoassert](https://npmjs.com/nanoassert), it's cool.
 
-This isn't meant to be a comprehensive type checking library, just a small collection of assertions for types that come up most often for me as function params. Obviously this can be different depending on the project, so your needs may be wildly different. See below about [contributing type assertions]().
+This isn't meant to be a comprehensive type checking library, just a small collection of assertions for types that come up most often for me as function params. Obviously this can be different depending on the project, so your needs may be wildly different. See below about [contributing type assertions](#contributing-type-assertions).
 
 ## Install
 
