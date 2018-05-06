@@ -1,5 +1,5 @@
 {
-  "name": "assert-argumentt",
+  "name": "assert-argument",
   "version": "1.0.0",
   "description": "simple assertion module for checking function arguments",
   "main": "index.js",
