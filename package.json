@@ -15,7 +15,7 @@
     "assertion"
   ],
   "author": "sethvincent <sethvincent@gmail.com> (https://sethvincent.com/)",
-  "license": "Apache-2.0",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/sethvincent/assert-argument/issues"
   },
