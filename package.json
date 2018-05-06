@@ -1,0 +1,35 @@
+{
+  "name": "assert-argumentt",
+  "version": "0.0.0",
+  "description": "simple assertion module for checking function arguments",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethvincent/assert-argument.git"
+  },
+  "keywords": [
+    "assert",
+    "assertion"
+  ],
+  "author": "sethvincent <sethvincent@gmail.com> (https://sethvincent.com/)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sethvincent/assert-argument/issues"
+  },
+  "homepage": "https://github.com/sethvincent/assert-argument#readme",
+  "devDependencies": {
+    "documentation": "^6.3.2",
+    "standard": "^11.0.1",
+    "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "is-buffer": "^2.0.2",
+    "is-date-object": "^1.0.1",
+    "is-error": "^2.2.1",
+    "is-promise": "^2.1.0",
+    "is-string": "^1.0.4"
+  }
+}

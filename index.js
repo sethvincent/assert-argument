@@ -1,0 +1,276 @@
+var _isError = require('is-error')
+var _isBuffer = require('is-buffer')
+var _isPromise = require('is-promise')
+var _isDate = require('is-date-object')
+var _isString = require('is-string')
+
+var toString = Object.prototype.toString
+var defaultErrorName = 'ArgumentError'
+
+/**
+* Assert that a value is true
+*
+* @param {boolean} bool - value that is expected to be a `true` boolean or at least "truthy" value
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not true
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithAString (str) {
+*   assert(typeof str === 'string', 'str param must be a string')
+* }
+**/
+function assertArgument (bool, message) {
+  if (!bool) {
+    var error = new Error(message)
+    error.name = defaultErrorName
+    throw error || 'expected truthy value'
+  }
+}
+
+/**
+* Assert that a value is a boolean
+*
+* @param {boolean} bool - value that is expected to be a boolean
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a boolean
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithABoolean (bool) {
+*   assert.isBoolean(bool, 'bool param must be a string')
+* }
+**/
+function isBoolean (bool, message) {
+  assertArgument(
+    bool === true || bool === false || toString.call(bool) === '[object Boolean]',
+    message || 'expected boolean'
+  )
+}
+
+/**
+* Assert that a value is a string
+*
+* @param {string} str - value that is expected to be a string
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a string
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithAString (str) {
+*   assert.isString(str, 'str param must be a string')
+* }
+**/
+function isString (str, message) {
+  assertArgument(
+    _isString(str),
+    message || 'expected string'
+  )
+}
+
+/**
+* Assert that a value is a number
+*
+* @param {number} num - value that is expected to be a number
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a number
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithANumber (num) {
+*   assert.isNumber(num, 'num param must be a number')
+* }
+**/
+function isNumber (num, message) {
+  assertArgument(
+    toString.call(num) === '[object Number]',
+    message || 'expected number'
+  )
+}
+
+/**
+* Assert that a value is an object
+*
+* @param {object} obj - value that is expected to be a object
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not an object
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithAString (obj) {
+*   assert.isObject(obj, 'obj param must be an object')
+* }
+**/
+function isObject (obj, message) {
+  assertArgument(
+    typeof obj === 'object' && Array.isArray(obj) === false,
+    message || 'expected object'
+  )
+}
+
+/**
+* Assert that a value is an array
+*
+* @param {array} arr - value that is expected to be an array
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not an array
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithnArray (arr) {
+*   assert.isArray(arr, 'arr param must be an array')
+* }
+**/
+function isArray (arr, message) {
+  assertArgument(
+    Array.isArray(arr) ||
+      (arr != null && arr.length && typeof arr !== 'function'),
+    message || 'expected array'
+  )
+}
+
+/**
+* Assert that a value is a function
+*
+* @param {function} fn - value that is expected to be a function
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a function
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithAFunction (fn) {
+*   assert.isFunction(fn, 'fn param must be a function')
+* }
+**/
+function isFunction (fn, message) {
+  assertArgument(
+    typeof fn === 'function',
+    message || 'expected function'
+  )
+}
+
+/**
+* Assert that a value is a RegExp
+*
+* @param {RegExp} re - value that is expected to be a RegExp
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a RegExp
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithARegExp (re) {
+*   assert.isRegExp(re, 're param must be a regexp')
+* }
+**/
+function isRegExp (re, message) {
+  assertArgument(
+    toString.call(re) === '[object RegExp]',
+    message || 'expected regexp'
+  )
+}
+
+/**
+* Assert that a value is a promise
+*
+* @param {promise} p - value that is expected to be a promise
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a promise
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithAPromise (p) {
+*   assert.isPromise(p, 'p param must be a ')
+* }
+**/
+function isPromise (p, message) {
+  assertArgument(
+    _isPromise(p),
+    message || 'expected promise'
+  )
+}
+
+/**
+* Assert that a value is a Date object
+*
+* @param {Date} date - value that is expected to be a Date object
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a Date object
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithADate (date) {
+*   assert.isDate(date, 'date param must be a Date object')
+* }
+**/
+function isDate (date, message) {
+  assertArgument(
+    _isDate(date),
+    message || 'expected date'
+  )
+}
+
+/**
+* Assert that a value is an Error
+*
+* @param {Error} errObj - value that is expected to be an Error
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not an Error
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithAnError (errObj) {
+*   assert.isError(errObj, 'errObj param must be an Error')
+* }
+**/
+function isError (errObj, message) {
+  assertArgument(
+    _isError(errObj),
+    message || 'expected error'
+  )
+}
+
+/**
+* Assert that a value is a Buffer
+*
+* @param {Buffer} buf - value that is expected to be a Buffer
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not a Buffer
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithABuffer (buf) {
+*   assert.isBuffer(buf, 'buf param must be a Buffer')
+* }
+**/
+function isBuffer (buf, message) {
+  assertArgument(
+    _isBuffer(buf),
+    message || 'expected buffer'
+  )
+}
+
+assertArgument.isBoolean = isBoolean
+assertArgument.isString = isString
+assertArgument.isNumber = isNumber
+assertArgument.isObject = isObject
+assertArgument.isArray = isArray
+assertArgument.isFunction = isFunction
+assertArgument.isRegExp = isRegExp
+assertArgument.isPromise = isPromise
+assertArgument.isDate = isDate
+assertArgument.isError = isError
+assertArgument.isBuffer = isBuffer
+
+module.exports = assertArgument
