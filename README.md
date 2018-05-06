@@ -84,8 +84,12 @@ I'm interested in adding more type assertion to this, but only those that have r
 ```js
 var assert = require('assert-argument')
 
-assert.isAsyncFunction = function (asyncFn, message){
-  // function that does the check using the same argument signature as the other methods
+// function that does the check using the same argument signature as the other methods
+assert.isMap = function isMap (map, message) {
+  assert(
+    Object.prototype.toString.call(map) === '[object Map]',
+    message
+  )
 }
 
 module.exports = assert
