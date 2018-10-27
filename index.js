@@ -93,6 +93,27 @@ function isNumber (num, message) {
 }
 
 /**
+* Assert that a value is an integer
+*
+* @param {number} int - value that is expected to be an integer
+* @param {string} [message] - optional message describing the assertion
+* @throws {ArgumentError} - throws an `ArgumentError` if the value is not an integer
+* @returns {undefined}
+* @example
+* var assert = require('assert-argument')
+*
+* function doSomethingWithANumber (num) {
+*   assert.isNumber(num, 'num param must be a number')
+* }
+**/
+function isInteger (num, message) {
+  assertArgument(
+    Number.isInteger(num),
+    message || 'expected number'
+  )
+}
+
+/**
 * Assert that a value is an object
 *
 * @param {object} obj - value that is expected to be a object
@@ -264,6 +285,7 @@ function isBuffer (buf, message) {
 assertArgument.isBoolean = isBoolean
 assertArgument.isString = isString
 assertArgument.isNumber = isNumber
+assertArgument.isInteger = isInteger
 assertArgument.isObject = isObject
 assertArgument.isArray = isArray
 assertArgument.isFunction = isFunction

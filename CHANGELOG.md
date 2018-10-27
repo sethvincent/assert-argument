@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 * ???
 
+## [v1.1.0] - 2018-10-26
+
+### Added
+- `assert.isInteger`
+
 ## [v1.0.2] - 2018-05-06
 
 ### Changed
@@ -43,6 +48,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   assert.isBuffer(value, message)
   ```
 
+[v1.1.0]: https://github.com/sethvincent/assert-argument/compare/v1.0.2...v1.1.0
 [v1.0.2]: https://github.com/sethvincent/assert-argument/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/sethvincent/assert-argument/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/sethvincent/assert-argument/tree/v1.0.0

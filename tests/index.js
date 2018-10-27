@@ -40,6 +40,13 @@ var testValues = {
   ],
   buffer: [
     Buffer.from([]), Buffer.from('')
+  ],
+  number: [
+    1,
+    1.1
+  ],
+  integer: [
+    1
   ]
 }
 
