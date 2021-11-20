@@ -1,14 +1,11 @@
 # assert-argument
 
 [![npm][npm-image]][npm-url]
-[![travis][travis-image]][travis-url]
 [![standard][standard-image]][standard-url]
 [![conduct][conduct]][conduct-url]
 
 [npm-image]: https://img.shields.io/npm/v/assert-argument.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/assert-argument
-[travis-image]: https://img.shields.io/travis/sethvincent/assert-argument.svg?style=flat-square
-[travis-url]: https://travis-ci.org/sethvincent/assert-argument
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [standard-url]: http://npm.im/standard
 [conduct]: https://img.shields.io/badge/code%20of%20conduct-contributor%20covenant-green.svg?style=flat-square
@@ -30,7 +27,7 @@ I'm not a fan of using tools like flow or typescript, but I am a fan of writing 
 
 There are probably a lot of similar projects. For instance, if you don't care about type assertions and just want a really tiny assert module, check out [nanoassert](https://npmjs.com/nanoassert), it's cool.
 
-This isn't meant to be a comprehensive type checking library, just a small collection of assertions for types that come up most often for me as function params. Obviously this can be different depending on the project, so your needs may be wildly different. See below about [contributing type assertions](#contributing-type-assertions).
+This isn't meant to be a comprehensive type checking library, just a small collection of assertions for types that come up most often for me as function params.
 
 ## Install
 
@@ -78,25 +75,6 @@ assert.isBuffer(value, message)
 ```
 
 Any time the assertion fails an error will be thrown with the format of `ArgumentError: <message>`, where `<message>` is the string you passed in as the second argument to describe the assertion.
-
-## Contributing type assertions
-I'm interested in adding more type assertion to this, but only those that have really common use cases to help keep this module small. Before adding new type assertions to this library I'd recommend extending it in your application by creating a file similar to this:
-
-```js
-var assert = require('assert-argument')
-
-// function that does the check using the same argument signature as the other methods
-assert.isMap = function isMap (map, message) {
-  assert(
-    Object.prototype.toString.call(map) === '[object Map]',
-    message
-  )
-}
-
-module.exports = assert
-```
-
-That's what I'll be doing until I decide something is common enough for me that I want to add it here.
 
 ## Documentation
 - [API](docs/api.md)

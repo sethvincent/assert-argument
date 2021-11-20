@@ -1,7 +1,7 @@
-var test = require('tape')
-var assert = require('../index')
+import test from 'tape'
+import * as assert from '../index.js'
 
-var testValues = {
+const testValues = {
   boolean: [
     true,
     false,

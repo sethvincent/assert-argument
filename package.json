@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "simple assertion module for checking function arguments",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "doc": "documentation build index.js -f md > docs/api.md",
     "lint": "standard index.js",
@@ -23,15 +24,15 @@
   },
   "homepage": "https://github.com/sethvincent/assert-argument#readme",
   "devDependencies": {
-    "documentation": "^6.3.2",
-    "standard": "^11.0.1",
-    "tape": "^4.9.0"
+    "documentation": "^13.2.5",
+    "standard": "^16.0.4",
+    "tape": "^5.3.2"
   },
   "dependencies": {
-    "is-buffer": "^2.0.2",
-    "is-date-object": "^1.0.1",
-    "is-error": "^2.2.1",
-    "is-promise": "^2.1.0",
-    "is-string": "^1.0.4"
+    "is-buffer": "^2.0.5",
+    "is-date-object": "^1.0.5",
+    "is-error": "^2.2.2",
+    "is-promise": "^4.0.0",
+    "is-string": "^1.0.7"
   }
 }

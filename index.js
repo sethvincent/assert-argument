@@ -1,11 +1,11 @@
-var _isError = require('is-error')
-var _isBuffer = require('is-buffer')
-var _isPromise = require('is-promise')
-var _isDate = require('is-date-object')
-var _isString = require('is-string')
+import _isError from 'is-error'
+import _isBuffer from 'is-buffer'
+import _isPromise from 'is-promise'
+import _isDate from 'is-date-object'
+import _isString from 'is-string'
 
-var toString = Object.prototype.toString
-var defaultErrorName = 'ArgumentError'
+const toString = Object.prototype.toString
+const defaultErrorName = 'ArgumentError'
 
 /**
 * Assert that a value is true
@@ -15,10 +15,10 @@ var defaultErrorName = 'ArgumentError'
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not true
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import { assertArgument } from 'assert-argument'
 *
 * function doSomethingWithAString (str) {
-*   assert(typeof str === 'string', 'str param must be a string')
+*   assertArgument(typeof str === 'string', 'str param must be a string')
 * }
 **/
 function assertArgument (bool, message) {
@@ -37,13 +37,13 @@ function assertArgument (bool, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a boolean
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithABoolean (bool) {
 *   assert.isBoolean(bool, 'bool param must be a string')
 * }
 **/
-function isBoolean (bool, message) {
+export function isBoolean (bool, message) {
   assertArgument(
     bool === true || bool === false || toString.call(bool) === '[object Boolean]',
     message || 'expected boolean'
@@ -58,13 +58,13 @@ function isBoolean (bool, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a string
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithAString (str) {
 *   assert.isString(str, 'str param must be a string')
 * }
 **/
-function isString (str, message) {
+export function isString (str, message) {
   assertArgument(
     _isString(str),
     message || 'expected string'
@@ -79,13 +79,13 @@ function isString (str, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a number
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithANumber (num) {
 *   assert.isNumber(num, 'num param must be a number')
 * }
 **/
-function isNumber (num, message) {
+export function isNumber (num, message) {
   assertArgument(
     toString.call(num) === '[object Number]',
     message || 'expected number'
@@ -100,13 +100,13 @@ function isNumber (num, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not an integer
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithANumber (num) {
 *   assert.isNumber(num, 'num param must be a number')
 * }
 **/
-function isInteger (num, message) {
+export function isInteger (num, message) {
   assertArgument(
     Number.isInteger(num),
     message || 'expected number'
@@ -121,13 +121,13 @@ function isInteger (num, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not an object
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithAString (obj) {
 *   assert.isObject(obj, 'obj param must be an object')
 * }
 **/
-function isObject (obj, message) {
+export function isObject (obj, message) {
   assertArgument(
     typeof obj === 'object' && Array.isArray(obj) === false,
     message || 'expected object'
@@ -142,13 +142,13 @@ function isObject (obj, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not an array
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithnArray (arr) {
 *   assert.isArray(arr, 'arr param must be an array')
 * }
 **/
-function isArray (arr, message) {
+export function isArray (arr, message) {
   assertArgument(
     Array.isArray(arr) ||
       (arr != null && arr.length && typeof arr !== 'function'),
@@ -164,13 +164,13 @@ function isArray (arr, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a function
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithAFunction (fn) {
 *   assert.isFunction(fn, 'fn param must be a function')
 * }
 **/
-function isFunction (fn, message) {
+export function isFunction (fn, message) {
   assertArgument(
     typeof fn === 'function',
     message || 'expected function'
@@ -185,13 +185,13 @@ function isFunction (fn, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a RegExp
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithARegExp (re) {
 *   assert.isRegExp(re, 're param must be a regexp')
 * }
 **/
-function isRegExp (re, message) {
+export function isRegExp (re, message) {
   assertArgument(
     toString.call(re) === '[object RegExp]',
     message || 'expected regexp'
@@ -206,13 +206,13 @@ function isRegExp (re, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a promise
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithAPromise (p) {
 *   assert.isPromise(p, 'p param must be a ')
 * }
 **/
-function isPromise (p, message) {
+export function isPromise (p, message) {
   assertArgument(
     _isPromise(p),
     message || 'expected promise'
@@ -227,13 +227,13 @@ function isPromise (p, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a Date object
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithADate (date) {
 *   assert.isDate(date, 'date param must be a Date object')
 * }
 **/
-function isDate (date, message) {
+export function isDate (date, message) {
   assertArgument(
     _isDate(date),
     message || 'expected date'
@@ -248,13 +248,13 @@ function isDate (date, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not an Error
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithAnError (errObj) {
 *   assert.isError(errObj, 'errObj param must be an Error')
 * }
 **/
-function isError (errObj, message) {
+export function isError (errObj, message) {
   assertArgument(
     _isError(errObj),
     message || 'expected error'
@@ -269,30 +269,15 @@ function isError (errObj, message) {
 * @throws {ArgumentError} - throws an `ArgumentError` if the value is not a Buffer
 * @returns {undefined}
 * @example
-* var assert = require('assert-argument')
+* import * as assert from 'assert-argument'
 *
 * function doSomethingWithABuffer (buf) {
 *   assert.isBuffer(buf, 'buf param must be a Buffer')
 * }
 **/
-function isBuffer (buf, message) {
+export function isBuffer (buf, message) {
   assertArgument(
     _isBuffer(buf),
     message || 'expected buffer'
   )
 }
-
-assertArgument.isBoolean = isBoolean
-assertArgument.isString = isString
-assertArgument.isNumber = isNumber
-assertArgument.isInteger = isInteger
-assertArgument.isObject = isObject
-assertArgument.isArray = isArray
-assertArgument.isFunction = isFunction
-assertArgument.isRegExp = isRegExp
-assertArgument.isPromise = isPromise
-assertArgument.isDate = isDate
-assertArgument.isError = isError
-assertArgument.isBuffer = isBuffer
-
-module.exports = assertArgument
